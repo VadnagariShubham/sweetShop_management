@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sweet Shop</title>
+  <style>
+    body { font-family: Arial;
+      background-color: rgb(255, 206, 222);
+       text-align: center; padding: 20px; }
+   
+    .button1 {
+      background-color: rgb(124, 96, 54);
+      color: white;
+      border: 2px solid black;
+      
+
+    }
+    .button2 {
+      background-color: rgb(124, 96, 54);
+      color: white;
+      border: 2px solid black;
+      
+
+    }
+    .button3 {
+      background-color: rgb(255, 189, 134);
+      color: black;
+    }
+  </style>
+</head>
+<body>
+  <h1 style="color: black;font-family: 'Times New Roman', Times, serif;">Welcome to the Sweet Shop</h1>
+   <h3>Search here</h3>
+  <form action="/search" method="get" style="margin-bottom: 20px;">
+    <input type="text" name="name" placeholder="Name" />
+    <input type="text" name="category" placeholder="Category" />
+    <input type="number" name="minPrice" placeholder="Min Price" min="0" />
+    <input type="number" name="maxPrice" placeholder="Max Price" min="0" />
+    <button class="button3" type="submit"> Search</button>
+  </form>
+
+  <a class="button1" href="/sweets">view SweetList</a>
+  <a class="button2" href="/add">Add More</a>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sweet Shop</title>
+  <style>
+    body { font-family: Arial;
+        background-color: rgb(240, 230, 218);
+        text-align: center; padding: 20px; }
+    h1 { color: black; }
+    a {
+      display: block;
+      margin: 10px;
+      font-size: 18px;
+      text-decoration: none;
+      color: #2980b9;
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    li {
+      margin: 10px 0;
+    }
+    form {
+      display: inline;
+    }
+  </style>
+</head>
+<body>
+  <h1>All Sweets</h1>
+
+  <ul>
+    <% sweets.forEach(sweet => { %>
+      <li>
+        <%= sweet.name %> - <%= sweet.category %> - ₹<%= sweet.price %> (Qty: <%= sweet.quantity %>)
+
+        <!-- ✅ Move forms INSIDE the loop -->
+        <form action="/delete-sweet/<%= sweet.id %>" method="POST">
+          <button type="submit">Delete</button>
+        </form>
+
+        <form action="/purchase-sweet/<%= sweet.id %>" method="POST" style="margin-left:10px;">
+          <input name="quantity" type="number" min="1" placeholder="Qty" required style="width: 60px;" />
+          <button type="submit"> Purchase</button>
+        </form>
+        <form action="/restock-sweet/<%= sweet.id %>" method="POST" style="margin-left:10px;">
+          <input name="quantity" type="number" min="1" placeholder="Qty" required style="width: 60px;" />
+          <button type="submit"> Restock</button>
+        </form>
+      </li>
+    <% }); %>
+  </ul>
+  <div style="margin-top: 20px;display:flex;justify-content:center;gap:20px;">
+    <a href="/">Home</a>
+    <a href="/add">Add a New Sweet</a>
+
+  </div>
+ 
+</body>
+</html>
