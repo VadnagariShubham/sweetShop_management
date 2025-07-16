@@ -27,6 +27,13 @@ class sweetshop {
   delete this.sweets[id];
 }
 
+  purchaseSweet(id, quantity) {
+    const sweet = this.sweets[id];
+    if (!sweet) throw new Error("Sweet not found");
+    if (sweet.quantity < quantity || quantity < 0) throw new Error("Insufficient stock");
+    sweet.quantity -= quantity;
+  }
+
 
 
 }
