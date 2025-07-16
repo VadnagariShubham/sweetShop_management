@@ -22,7 +22,10 @@ class sweetshop {
     this.sweets[id] = new sweet(id,name,category,price,quantity);
   }
 
-  
+   deleteSweet(id) {
+  if (!this.sweets[id]) throw new Error(`Sweet with ID ${id} not found`);
+  delete this.sweets[id];
+}
 
 
 
