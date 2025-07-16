@@ -45,6 +45,19 @@ class sweetshop {
     });
   }
 
+   sortSweets(property = 'name', order = 'asc') {
+    const validProperties = ['name', 'category', 'price', 'quantity'];
+    if (!validProperties.includes(property)) {
+      throw new Error(`Invalid property to sort by. Valid properties: ${validProperties.join(', ')}`);
+    }
+    const sorted = Object.values(this.sweets).slice().sort((a, b) => {
+      if (a[property] < b[property]) return order === 'asc' ? -1 : 1;
+      if (a[property] > b[property]) return order === 'asc' ? 1 : -1;
+      return 0;
+    });
+    return sorted;
+  }
+
 
 
 
