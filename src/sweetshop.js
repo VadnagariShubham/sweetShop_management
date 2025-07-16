@@ -58,6 +58,13 @@ class sweetshop {
     return sorted;
   }
 
+  restockSweet(id, quantity) {
+    const sweet = this.sweets[id];
+    if (!sweet) throw new Error("Sweet not found");
+    if (typeof quantity !== 'number' || isNaN(quantity) || quantity <= 0) throw new Error("Quantity must be positive");
+    sweet.quantity += quantity;
+  }
+
 
 
 

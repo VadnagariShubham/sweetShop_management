@@ -68,6 +68,14 @@ describe('SweetShop', () => {
   expect(sorted[2].name).toBe('Kaju Katli');
 });
 
+//adding test cases for restoking sweet
+ test('restocks a sweet', () => {
+    shop.addSweet('1001', 'Kaju Katli', 'Nut-Based', 50, 20);
+    shop.restockSweet('1001', 10);
+    expect(shop.sweets['1001'].quantity).toBe(30);
+  });
+
+
 
  
 });
