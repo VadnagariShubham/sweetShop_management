@@ -36,5 +36,23 @@ describe('SweetShop', () => {
     expect(shop.sweets['1001'].quantity).toBe(15);
   });
 
+  //adding test case for search
+
+   test('search sweets by name', () => {
+    shop.addSweet('1001', 'Kaju Katli', 'Nut-Based', 50, 20);
+    shop.addSweet('1002', 'Rasgulla', 'Syrup-Based', 30, 15);
+    const results = shop.searchSweets({ name: 'kaju' });
+    expect(results.length).toBe(1);
+    expect(results[0].name).toBe('Kaju Katli');
+  });
+
+   test('search sweets by category', () => {
+    shop.addSweet('1001', 'Kaju Katli', 'Nut-Based', 50, 20);
+    shop.addSweet('1002', 'Rasgulla', 'Syrup-Based', 30, 15);
+    const results = shop.searchSweets({ category: 'Syrup-Based' });
+    expect(results.length).toBe(1);
+    expect(results[0].name).toBe('Rasgulla');
+  });
+
  
 });
