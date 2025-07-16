@@ -28,5 +28,13 @@ describe('SweetShop', () => {
     expect(() => shop.deleteSweet('9999')).toThrow('Sweet with ID 9999 not found');
   });
 
+  //adding test case fir purchasing 
+
+   test('purchase sweet reduces quantity', () => {
+    shop.addSweet('1001', 'Kaju Katli', 'Nut-Based', 50, 20);
+    shop.purchaseSweet('1001',5);
+    expect(shop.sweets['1001'].quantity).toBe(15);
+  });
+
  
 });
